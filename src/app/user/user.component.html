@@ -1,8 +1,12 @@
 <div>
   <button (click)="onSelectUser()">
-    <img [src]="imagePath" [alt]="name" /><!-- property binding -->
+    <img [src]="imagePath()" [alt]="name()" /><!-- property binding -->
 
-    <span>{{ name }}</span>
+    <!-- if we are using signals to receive the data 
+     then we have to use name(), imagePath() this syntax 
+     to read from that signal in the HTML-->
+
+    <span>{{ name() }}</span>
     <!-- string interpolation -->
   </button>
 </div>
