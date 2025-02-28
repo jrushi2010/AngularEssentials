@@ -7,17 +7,19 @@ import { DUMMY_USERS } from '../dummy-users';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent {
-  @Input() id!: string;
-  @Input() avatar!: string;
-  @Input() name!: string;
+  @Input() user!: {
+    id: string;
+    avatar: string;
+    name: string;
+  };
 
   @Output() select = new EventEmitter();
 
   get imagePath() {
-    return 'assets/users/' + this.avatar;
+    return 'assets/users/' + this.user.avatar;
   }
 
   onSelectUser() {
-    this.select.emit(this.id);
+    this.select.emit(this.user.id);
   }
 }
