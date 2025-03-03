@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output, signal } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { NewTaskData } from 'src/app/task/task.model';
 
 @Component({
   selector: 'app-new-task',
@@ -8,10 +9,7 @@ import { Component, EventEmitter, Output, signal } from '@angular/core';
 export class NewTaskComponent {
   @Output() cancel = new EventEmitter<void>();
 
-  //Angular 17 using singls, we dont have to change anything in the template(html) file, signal will automatically read it from the ngmodel
-  // enteredTitle = signal('');
-  // enteredSummary = signal('');
-  // enteredDueDate = signal('');
+  @Output() add = new EventEmitter<NewTaskData>();
 
   enteredTitle = '';
   enteredSummary = '';
@@ -19,5 +17,13 @@ export class NewTaskComponent {
 
   onCancel() {
     this.cancel.emit();
+  }
+
+  onSubmit() {
+    this.add.emit({
+      title: this.enteredTitle,
+      summary: this.enteredSummary,
+      date: this.enteredDueDate,
+    });
   }
 }
