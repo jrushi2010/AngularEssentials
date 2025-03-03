@@ -9,6 +9,8 @@ export class TasksComponent {
   @Input() name?: string;
   @Input() userId?: string;
 
+  isAddingTask = false;
+
   tasks = [
     {
       id: 't1',
@@ -41,5 +43,9 @@ export class TasksComponent {
 
   onCompleteTask(id: string) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
+  }
+
+  onStartAddTask() {
+    this.isAddingTask = true;
   }
 }
