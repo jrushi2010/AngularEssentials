@@ -8,6 +8,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TaskComponent } from './task/task.component';
 import { NewTaskComponent } from './tasks/new-task/new-task.component';
 import { FormsModule } from '@angular/forms';
+import { CardComponent } from './shared/card/card.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     TasksComponent,
     TaskComponent,
     NewTaskComponent,
+    CardComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
